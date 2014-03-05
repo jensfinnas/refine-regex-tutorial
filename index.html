@@ -4,11 +4,11 @@
   <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Refine-regex-tutorial : Tutorial: Regular Expressions in Open Refine" />
+    <meta name="description" content="Tutorial: Reguljära uttryck i Open Refine : " />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Refine-regex-tutorial</title>
+    <title>Tutorial: Reguljära uttryck i Open Refine</title>
   </head>
 
   <body>
@@ -18,8 +18,8 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/jensfinnas/refine-regex-tutorial">View on GitHub</a>
 
-          <h1 id="project_title">Refine-regex-tutorial</h1>
-          <h2 id="project_tagline">Tutorial: Regular Expressions in Open Refine</h2>
+          <h1 id="project_title">Tutorial: Reguljära uttryck i Open Refine</h1>
+          <h2 id="project_tagline"></h2>
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/jensfinnas/refine-regex-tutorial/zipball/master">Download this project as a .zip file</a>
@@ -31,17 +31,83 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h1>
-<a name="tutorial-regular-expressions-in-open-refine" class="anchor" href="#tutorial-regular-expressions-in-open-refine"><span class="octicon octicon-link"></span></a>Tutorial: Regular Expressions in Open Refine</h1>
+        <p>Reguljära uttryck (regular expression, regex, regexp) är en syntax för att göra avancerade sökningar i strängar. Reguljära uttyck går att tillämpa i de flesta programmeringsspråk.</p>
 
-<p><strong>Data:</strong> <a href="http://data.riksdagen.se/Data/Ledamoter/">http://data.riksdagen.se/Data/Ledamoter/</a></p>
+<h3>
+<a name="definiera-tecken-p%C3%A5-regex-spr%C3%A5k" class="anchor" href="#definiera-tecken-p%C3%A5-regex-spr%C3%A5k"><span class="octicon octicon-link"></span></a>Definiera tecken på regex-språk</h3>
+
+<table>
+<tr>
+<td><code>^</code></td>
+<td>Början av en sträng</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>Slutet av en sträng</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>Vilket tecken som helst</td>
+</tr>
+<tr>
+<td><code>[]</code></td>
+<td>Matchar något av tecknen inom klammern. Till exempel <code>[aoueiyåäö]</code> matchar en vokal.</td>
+</tr>
+<tr>
+<td><code>\s</code></td>
+<td>Mellanslag</td>
+</tr>
+<tr>
+<td><code>\S</code></td>
+<td>Icke-mellanslag</td>
+</tr>
+<tr>
+<td><code>\d</code></td>
+<td>Siffra</td>
+</tr>
+<tr>
+<td><code>\D</code></td>
+<td>Icke-siffra</td>
+</tr>
+</table><h3>
+<a name="definiera-antal-tecken" class="anchor" href="#definiera-antal-tecken"><span class="octicon octicon-link"></span></a>Definiera antal tecken</h3>
+
+<table>
+<tr>
+<td><code>*</code></td>
+<td>Hur många tecken som helst av föregående.</td>
+</tr>
+<tr>
+<td><code>{3}</code></td>
+<td>Matchar exakt tre tecken. </td>
+</tr>
+<tr>
+<td><code>{3,5}</code></td>
+<td>Matchar exakt tre-fem tecken. </td>
+</tr>
+<tr>
+<td><code>{3,}</code></td>
+<td>Matchar tre tecken eller fler. </td>
+</tr>
+</table><h3>
+<a name="%C3%96vning-1" class="anchor" href="#%C3%96vning-1"><span class="octicon octicon-link"></span></a>Övning 1:</h3>
+
+<p><img src="images/pythex.png" alt="Xml export">
+Gå till <a href="https://pythex.org/">https://pythex.org/</a>
+Klistra in texten från <a href="http://jensfinnas.github.io/refine-regex-tutorial/tweets.txt">http://jensfinnas.github.io/refine-regex-tutorial/tweets.txt</a></p>
+
+<p>Övningar:</p>
+
+<ul>
+<li>Hur många gånger nämns "Jimmie"?</li>
+<li>Hitta alla hashtaggar.</li>
+<li>Hitta alla url:ar (http://).</li>
+</ul><p><strong>Data:</strong> <a href="http://data.riksdagen.se/Data/Ledamoter/">http://data.riksdagen.se/Data/Ledamoter/</a></p>
 
 <h3>
 <a name="step-1-import-data" class="anchor" href="#step-1-import-data"><span class="octicon octicon-link"></span></a>Step 1: Import data</h3>
 
 <p><strong>Data:</strong> <a href="http://data.riksdagen.se/Data/Anforanden/">http://data.riksdagen.se/Data/Anforanden/</a></p>
-
-<p><img src="images/xml_export.png" alt="Xml export"></p>
 
 <pre><code>import re
 return re.search("(Herr) talman", value).group(1)
@@ -57,7 +123,7 @@ return re.search("(Herr) talman", value).group(1)
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Refine-regex-tutorial maintained by <a href="https://github.com/jensfinnas">jensfinnas</a></p>
+        <p class="copyright">Tutorial: Reguljära uttryck i Open Refine maintained by <a href="https://github.com/jensfinnas">jensfinnas</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
