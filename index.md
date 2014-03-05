@@ -7,6 +7,7 @@ __Data:__ http://data.riksdagen.se/Data/Ledamoter/
 ###Step 1: Import data
 __Data:__ http://data.riksdagen.se/Data/Anforanden/
 
+![Xml export](images/xml_export.png)
 
 
 <pre><code>import re
