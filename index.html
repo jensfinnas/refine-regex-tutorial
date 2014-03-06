@@ -162,11 +162,18 @@ return re.search("([Ll]andsbygd)",value).group(0)
 return re.search("^(\S{3,4}) talman",value).group(1)
 </code></pre>
 
-<p>Här söker vi efter:
-1) <code>~</code> början på en rad
-2) <code>\S{3,4}</code> tre eller fyra tecken.
-3) <code> talman</code> följt av mellanslag talman.
-4) <code>()</code> anger att det är bara ordet inom parentesen som vi vill fånga in.</p>
+<p>Här söker vi efter</p>
+
+<ol>
+<li>
+<code>~</code> början på en rad</li>
+<li>
+<code>\S{3,4}</code> tre eller fyra tecken.</li>
+<li>
+<code> talman</code> följt av mellanslag talman.</li>
+<li>
+<code>()</code> anger att det är bara ordet inom parentesen som vi vill fånga in.</li>
+</ol>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/jensfinnas">jensfinnas</a></p>
