@@ -1,4 +1,4 @@
 refine-regex-tutorial
 =====================
 
-Tutorial: Regular Expressions in Open Refine
+http://jensfinnas.github.io/refine-regex-tutorial/
