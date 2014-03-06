@@ -86,10 +86,12 @@
 <td><code>{3,}</code></td>
 <td>Matchar tre tecken eller fler. </td>
 </tr>
-</table><h3>
+</table><p><strong>Komplett lista över funktioner:</strong> <a href="http://www.tutorialspoint.com/python/python_reg_expressions.htm">http://www.tutorialspoint.com/python/python_reg_expressions.htm</a></p>
+
+<h3>
 <a name="%C3%96vning" class="anchor" href="#%C3%96vning"><span class="octicon octicon-link"></span></a>Övning:</h3>
 
-<p><img src="images/pythex.png" alt="Xml export">
+<p><img src="https://github.com/jensfinnas/refine-regex-tutorial/images/01pythex.png" alt="Pythex">
 Gå till <a href="https://pythex.org/">https://pythex.org/</a>
 Klistra in texten från <a href="http://jensfinnas.github.io/refine-regex-tutorial/tweets.txt">http://jensfinnas.github.io/refine-regex-tutorial/tweets.txt</a></p>
 
@@ -111,23 +113,31 @@ Klistra in texten från <a href="http://jensfinnas.github.io/refine-regex-tutori
 <li>Jobba med <strong>stora mängder data</strong>.</li>
 </ul><p>Open Refine är framför allt användbart när man jobbar med <strong>textdata</strong>. Om du har numerisk data och vill göra beräkningar är det vanligen enklare att använda Excel eller något annat kalkylprogram.</p>
 
+<p>Varje databearbetning i Refine består av två steg:
+1) Välj vilken dela av datan du vill jobba med genom att applicera ett <strong>facet</strong> (filter).
+2) Applicera en funktion (ofta genom att klicka på en kolumnrubrik och välj <strong>Edit column</strong>).</p>
+
 <h3>
 <a name="importera-data" class="anchor" href="#importera-data"><span class="octicon octicon-link"></span></a>Importera data</h3>
 
-<p>Öppna Open Refine, välj <code>Create Project &gt; Web Addresses (URLs)</code> och klistra in följande url: <code><a href="http://jensfinnas.github.io/refine-regex-tutorial/data/anf%C3%B6randen_2013-2014.xml">http://jensfinnas.github.io/refine-regex-tutorial/data/anföranden_2013-2014.xml</a></code>.</p>
+<p>Öppna Open Refine, välj <code>Create Project &gt; Web Addresses (URLs)</code> och klistra in följande url: <code><a href="http://jensfinnas.github.io/refine-regex-tutorial/data/anf%C3%B6randen_2013-2014.xml">http://jensfinnas.github.io/refine-regex-tutorial/data/anföranden_2013-2014.xml</a></code>.
+<img src="https://github.com/jensfinnas/refine-regex-tutorial/images/02xml.png" alt="Välj fil"><strong>Källa:</strong> <a href="http://data.riksdagen.se/Data/Anforanden/">http://data.riksdagen.se/Data/Anforanden/</a>
+<img src="https://github.com/jensfinnas/refine-regex-tutorial/images/03import.png" alt="Granska data"></p>
 
-<p><strong>Data:</strong> <a href="http://data.riksdagen.se/Data/Ledamoter/">http://data.riksdagen.se/Data/Ledamoter/</a></p>
+<h3>
+<a name="formatera-datum-korrekt" class="anchor" href="#formatera-datum-korrekt"><span class="octicon octicon-link"></span></a>Formatera datum korrekt</h3>
 
-<p><strong>Data:</strong> <a href="http://data.riksdagen.se/Data/Anforanden/">http://data.riksdagen.se/Data/Anforanden/</a></p>
+<p>Klicka på kolumnen <strong>anforande - dok_datum</strong> och välj sedan  <strong>Edit column &gt; Add column based on this column</strong>.
+<img src="https://github.com/jensfinnas/refine-regex-tutorial/images/04parsedate.png" alt="Formatera datum korrekt"></p>
+
+<p>Applicera följande kod: <code>value.toDate()</code>.</p>
+
+<p>Vi kan nu filtrera på datum. Klicka på den nya kolumnen <strong>Datum</strong> (eller vad du valde att kalla den) och välj <strong>Facet &gt; Timeline facet</strong>.
+<img src="https://github.com/jensfinnas/refine-regex-tutorial/images/05filteredate.png" alt="Filtrera på datum"></p>
 
 <pre><code>import re
 return re.search("(Herr) talman", value).group(1)
 </code></pre>
-
-<h2>
-<a name="reference" class="anchor" href="#reference"><span class="octicon octicon-link"></span></a>Reference</h2>
-
-<p><a href="http://www.tutorialspoint.com/python/python_reg_expressions.htm">http://www.tutorialspoint.com/python/python_reg_expressions.htm</a></p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/jensfinnas">jensfinnas</a></p>
