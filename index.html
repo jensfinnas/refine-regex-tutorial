@@ -91,7 +91,7 @@
 <h3>
 <a name="%C3%96vning" class="anchor" href="#%C3%96vning"><span class="octicon octicon-link"></span></a>Övning:</h3>
 
-<p><img src="https://github.com/jensfinnas/refine-regex-tutorial/images/01pythex.png" alt="Pythex">
+<p><img src="http://jensfinnas.github.io/refine-regex-tutorial/images/01pythex.png" alt="Pythex">
 Gå till <a href="https://pythex.org/">https://pythex.org/</a>
 Klistra in texten från <a href="http://jensfinnas.github.io/refine-regex-tutorial/tweets.txt">http://jensfinnas.github.io/refine-regex-tutorial/tweets.txt</a></p>
 
@@ -121,19 +121,19 @@ Klistra in texten från <a href="http://jensfinnas.github.io/refine-regex-tutori
 <a name="importera-data" class="anchor" href="#importera-data"><span class="octicon octicon-link"></span></a>Importera data</h3>
 
 <p>Öppna Open Refine, välj <code>Create Project &gt; Web Addresses (URLs)</code> och klistra in följande url: <code><a href="http://jensfinnas.github.io/refine-regex-tutorial/data/anf%C3%B6randen_2013-2014.xml">http://jensfinnas.github.io/refine-regex-tutorial/data/anföranden_2013-2014.xml</a></code>.
-<img src="https://github.com/jensfinnas/refine-regex-tutorial/images/02xml.png" alt="Välj fil"><strong>Källa:</strong> <a href="http://data.riksdagen.se/Data/Anforanden/">http://data.riksdagen.se/Data/Anforanden/</a>
-<img src="https://github.com/jensfinnas/refine-regex-tutorial/images/03import.png" alt="Granska data"></p>
+<img src="http://jensfinnas.github.io/refine-regex-tutorial/images/02xml.png" alt="Välj fil"><strong>Källa:</strong> <a href="http://data.riksdagen.se/Data/Anforanden/">http://data.riksdagen.se/Data/Anforanden/</a>
+<img src="http://jensfinnas.github.io/refine-regex-tutorial/images/03import.png" alt="Granska data"></p>
 
 <h3>
 <a name="formatera-datum-korrekt" class="anchor" href="#formatera-datum-korrekt"><span class="octicon octicon-link"></span></a>Formatera datum korrekt</h3>
 
 <p>Klicka på kolumnen <strong>anforande - dok_datum</strong> och välj sedan  <strong>Edit column &gt; Add column based on this column</strong>.
-<img src="https://github.com/jensfinnas/refine-regex-tutorial/images/04parsedate.png" alt="Formatera datum korrekt"></p>
+<img src="http://jensfinnas.github.io/refine-regex-tutorial/images/04parsedate.png" alt="Formatera datum korrekt"></p>
 
 <p>Applicera följande kod: <code>value.toDate()</code>.</p>
 
 <p>Vi kan nu filtrera på datum. Klicka på den nya kolumnen <strong>Datum</strong> (eller vad du valde att kalla den) och välj <strong>Facet &gt; Timeline facet</strong>.
-<img src="https://github.com/jensfinnas/refine-regex-tutorial/images/05filteredate.png" alt="Filtrera på datum"></p>
+<img src="http://jensfinnas.github.io/refine-regex-tutorial/images/05filteredate.png" alt="Filtrera på datum"></p>
 
 <pre><code>import re
 return re.search("(Herr) talman", value).group(1)
