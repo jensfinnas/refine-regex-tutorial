@@ -1,36 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Tutorial: Reguljära uttryck i Open Refine : " />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Tutorial: Reguljära uttryck i Open Refine by jensfinnas</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Tutorial: Reguljära uttryck i Open Refine</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
+    <div class="wrapper">
+      <header>
+        <h1>Tutorial: Reguljära uttryck i Open Refine</h1>
+        <p></p>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/jensfinnas/refine-regex-tutorial">View on GitHub</a>
+        <p class="view"><a href="https://github.com/jensfinnas/refine-regex-tutorial">View the Project on GitHub <small>jensfinnas/refine-regex-tutorial</small></a></p>
 
-          <h1 id="project_title">Tutorial: Reguljära uttryck i Open Refine</h1>
-          <h2 id="project_tagline"></h2>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/jensfinnas/refine-regex-tutorial/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/jensfinnas/refine-regex-tutorial/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+        <ul>
+          <li><a href="https://github.com/jensfinnas/refine-regex-tutorial/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jensfinnas/refine-regex-tutorial/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jensfinnas/refine-regex-tutorial">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
         <p>Reguljära uttryck (regular expression, regex, regexp) är en syntax för att göra avancerade sökningar i strängar. Reguljära uttyck går att tillämpa i de flesta programmeringsspråk.</p>
 
 <h3>
@@ -90,7 +87,7 @@
 <td>Matchar tre tecken eller fler. </td>
 </tr>
 </table><h3>
-<a name="%C3%96vning-1" class="anchor" href="#%C3%96vning-1"><span class="octicon octicon-link"></span></a>Övning 1:</h3>
+<a name="%C3%96vning" class="anchor" href="#%C3%96vning"><span class="octicon octicon-link"></span></a>Övning:</h3>
 
 <p><img src="images/pythex.png" alt="Xml export">
 Gå till <a href="https://pythex.org/">https://pythex.org/</a>
@@ -102,10 +99,24 @@ Klistra in texten från <a href="http://jensfinnas.github.io/refine-regex-tutori
 <li>Hur många gånger nämns "Jimmie"?</li>
 <li>Hitta alla hashtaggar.</li>
 <li>Hitta alla url:ar (http://).</li>
-</ul><p><strong>Data:</strong> <a href="http://data.riksdagen.se/Data/Ledamoter/">http://data.riksdagen.se/Data/Ledamoter/</a></p>
+</ul><h1>
+<a name="open-refine" class="anchor" href="#open-refine"><span class="octicon octicon-link"></span></a>Open Refine</h1>
+
+<p>Open Refine (som tidigare hette Google Refine) är att gratisverktyg för att <strong>tvätta och bearbeta data</strong>. Med Open Refine kan du bland annat:</p>
+
+<ul>
+<li>Identifiera och harmonisera <strong>stavningsvariationer</strong> (till exempel "Ericsson Ab", "Ericsson", "Ericson" =&gt; "Ericsson")</li>
+<li>Använda externa API:er för att komplettera ditt dataset. Till exempel genom att anropa en <strong>geokodare</strong> som gör om adresser till longituder och latituder.</li>
+<li>Köra <strong>reguljära uttryck</strong>.</li>
+<li>Jobba med <strong>stora mängder data</strong>.</li>
+</ul><p>Open Refine är framför allt användbart när man jobbar med <strong>textdata</strong>. Om du har numerisk data och vill göra beräkningar är det vanligen enklare att använda Excel eller något annat kalkylprogram.</p>
 
 <h3>
-<a name="step-1-import-data" class="anchor" href="#step-1-import-data"><span class="octicon octicon-link"></span></a>Step 1: Import data</h3>
+<a name="importera-data" class="anchor" href="#importera-data"><span class="octicon octicon-link"></span></a>Importera data</h3>
+
+<p>Öppna Open Refine, välj <code>Create Project &gt; Web Addresses (URLs)</code> och klistra in följande url: <code><a href="http://jensfinnas.github.io/refine-regex-tutorial/data/anf%C3%B6randen_2013-2014.xml">http://jensfinnas.github.io/refine-regex-tutorial/data/anföranden_2013-2014.xml</a></code>.</p>
+
+<p><strong>Data:</strong> <a href="http://data.riksdagen.se/Data/Ledamoter/">http://data.riksdagen.se/Data/Ledamoter/</a></p>
 
 <p><strong>Data:</strong> <a href="http://data.riksdagen.se/Data/Anforanden/">http://data.riksdagen.se/Data/Anforanden/</a></p>
 
@@ -118,17 +129,12 @@ return re.search("(Herr) talman", value).group(1)
 
 <p><a href="http://www.tutorialspoint.com/python/python_reg_expressions.htm">http://www.tutorialspoint.com/python/python_reg_expressions.htm</a></p>
       </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Tutorial: Reguljära uttryck i Open Refine maintained by <a href="https://github.com/jensfinnas">jensfinnas</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/jensfinnas">jensfinnas</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-
+    <script src="javascripts/scale.fix.js"></script>
     
-
   </body>
 </html>
