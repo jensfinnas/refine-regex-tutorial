@@ -1,11 +1,12 @@
-Reguljära uttryck (regular expression, regex, regexp) är en syntax för att göra avancerade sökningar i strängar. Reguljära uttyck går att tillämpa i de flesta programmeringsspråk.
+__Reguljära uttryck__ (regular expression, regex, regexp) är en syntax för att göra __avancerade mönstersökningar i textsträngar__. Vi kan till exempel söka efter alla personnummer, webbadresser, akademiska titlar och så vidare. Reguljära uttyck går att tillämpa i de flesta programmeringsspråk.
+
 
 ### Definiera tecken på regex-språk
 <table>
 	<tr><td><code>^</code></td><td>Början av en sträng</td></tr>
 	<tr><td><code>$</code></td><td>Slutet av en sträng</td></tr>
 	<tr><td><code>.</code></td><td>Vilket tecken som helst</td></tr>
-	<tr><td><code>[]</code></td><td>Matchar något av tecknen inom klammern. Till exempel <code>[aoueiyåäö]</code> matchar en vokal.</td></tr>
+	<tr><td><code>[ ]</code></td><td>Matchar något av tecknen inom klammern. Till exempel <code>[aoueiyåäö]</code> matchar en vokal.</td></tr>
 	<tr><td><code>\s</code></td><td>Mellanslag</td></tr>
 	<tr><td><code>\S</code></td><td>Icke-mellanslag</td></tr>
 	<tr><td><code>\d</code></td><td>Siffra</td></tr>
@@ -23,6 +24,11 @@ Reguljära uttryck (regular expression, regex, regexp) är en syntax för att g�
 
 __Komplett lista över funktioner:__ http://www.tutorialspoint.com/python/python_reg_expressions.htm
 
+### Exempel
+<table>
+	<tr><td>Sök årtal</td><td><code>\d\d\d\d</code></td></tr>
+	<tr><td>Sök partiförkortningar</td><td><code>\([A-Z]\)</code></td></tr>
+</table>
 
 ### Övning: 
 ![Pythex](http://jensfinnas.github.io/refine-regex-tutorial/images/01pythex.png)
