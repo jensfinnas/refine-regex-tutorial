@@ -1,34 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Reguljära uttryck i Open Refine by jensfinnas</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Reguljära uttryck i Open Refine : En tutorial av Jens Finnäs från Journalism++ Stockholm." />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Reguljära uttryck i Open Refine</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Reguljära uttryck i Open Refine</h1>
-        <p>En tutorial av Jens Finnäs från Journalism++ Stockholm.</p>
 
-        <p class="view"><a href="https://github.com/jensfinnas/refine-regex-tutorial">View the Project on GitHub <small>jensfinnas/refine-regex-tutorial</small></a></p>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jensfinnas/refine-regex-tutorial">View on GitHub</a>
 
+          <h1 id="project_title">Reguljära uttryck i Open Refine</h1>
+          <h2 id="project_tagline">En tutorial av Jens Finnäs från Journalism++ Stockholm.</h2>
 
-        <ul>
-          <li><a href="https://github.com/jensfinnas/refine-regex-tutorial/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/jensfinnas/refine-regex-tutorial/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/jensfinnas/refine-regex-tutorial">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <p>Reguljära uttryck (regular expression, regex, regexp) är en syntax för att göra avancerade sökningar i strängar. Reguljära uttyck går att tillämpa i de flesta programmeringsspråk.</p>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jensfinnas/refine-regex-tutorial/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jensfinnas/refine-regex-tutorial/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p><strong>Reguljära uttryck</strong> (regular expression, regex, regexp) är en syntax för att göra <strong>avancerade mönstersökningar i textsträngar</strong>. Vi kan till exempel söka efter alla personnummer, webbadresser, akademiska titlar och så vidare. Reguljära uttyck går att tillämpa i de flesta programmeringsspråk.</p>
 
 <h3>
 <a name="definiera-tecken-p%C3%A5-regex-spr%C3%A5k" class="anchor" href="#definiera-tecken-p%C3%A5-regex-spr%C3%A5k"><span class="octicon octicon-link"></span></a>Definiera tecken på regex-språk</h3>
@@ -47,7 +50,7 @@
 <td>Vilket tecken som helst</td>
 </tr>
 <tr>
-<td><code>[]</code></td>
+<td><code>[ ]</code></td>
 <td>Matchar något av tecknen inom klammern. Till exempel <code>[aoueiyåäö]</code> matchar en vokal.</td>
 </tr>
 <tr>
@@ -89,6 +92,18 @@
 </table><p><strong>Komplett lista över funktioner:</strong> <a href="http://www.tutorialspoint.com/python/python_reg_expressions.htm">http://www.tutorialspoint.com/python/python_reg_expressions.htm</a></p>
 
 <h3>
+<a name="exempel" class="anchor" href="#exempel"><span class="octicon octicon-link"></span></a>Exempel</h3>
+
+<table>
+<tr>
+<td>Sök årtal</td>
+<td><code>\d\d\d\d</code></td>
+</tr>
+<tr>
+<td>Sök partiförkortningar</td>
+<td><code>\([A-Z]\)</code></td>
+</tr>
+</table><h3>
 <a name="%C3%96vning" class="anchor" href="#%C3%96vning"><span class="octicon octicon-link"></span></a>Övning:</h3>
 
 <p><img src="http://jensfinnas.github.io/refine-regex-tutorial/images/01pythex.png" alt="Pythex">
@@ -162,25 +177,23 @@ return re.search("([Ll]andsbygd)",value).group(0)
 return re.search("^(\S{3,4}) talman",value).group(1)
 </code></pre>
 
-<p>Här söker vi efter</p>
-
-<ol>
-<li>
-<code>~</code> början på en rad</li>
-<li>
-<code>\S{3,4}</code> tre eller fyra tecken.</li>
-<li>
-<code> talman</code> följt av mellanslag talman.</li>
-<li>
-<code>()</code> anger att det är bara ordet inom parentesen som vi vill fånga in.</li>
-</ol>
+<p>Här söker vi efter
+1. <code>~</code> början på en rad
+2. <code>\S{3,4}</code> tre eller fyra tecken som inte är mellanslag.
+3. <code> talman</code> följt av mellanslag talman.
+4. <code>()</code> anger att det är bara ordet inom parentesen som vi vill fånga in.</p>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/jensfinnas">jensfinnas</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Reguljära uttryck i Open Refine maintained by <a href="https://github.com/jensfinnas">jensfinnas</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
+
     
+
   </body>
 </html>
