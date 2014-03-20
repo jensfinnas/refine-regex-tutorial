@@ -1,12 +1,12 @@
 __Reguljära uttryck__ (regular expression, regex, regexp) är en syntax för att göra __avancerade mönstersökningar i textsträngar__. Vi kan till exempel söka efter alla personnummer, webbadresser, akademiska titlar och så vidare. Reguljära uttyck går att tillämpa i de flesta programmeringsspråk.
 
 
-### Definiera tecken på regex-språk
+### Steg 1: Definiera tecknet
 <table>
 	<tr><td><code>^</code></td><td>Början av en sträng</td></tr>
 	<tr><td><code>$</code></td><td>Slutet av en sträng</td></tr>
 	<tr><td><code>.</code></td><td>Vilket tecken som helst</td></tr>
-	<tr><td><code>[ ]</code></td><td>Matchar något av tecknen inom klammern. Till exempel <code>[aoueiyåäö]</code> matchar en vokal.</td></tr>
+	<tr><td><code>[ ]</code></td><td>Matchar något av tecknen inom klammern. Till exempel <code>[aoueiyåäö]</code> matchar en vokal, <code>[a-ö]</code> en liten bokstav mellan a och ö och <code>E-H</code> en stor bokstav mellan E och H.</td></tr>
 	<tr><td><code>\s</code></td><td>Mellanslag</td></tr>
 	<tr><td><code>\S</code></td><td>Icke-mellanslag</td></tr>
 	<tr><td><code>\d</code></td><td>Siffra</td></tr>
@@ -61,13 +61,14 @@ __Exempeltext:__
 </table>
 
 ### Övning: 
-![Pythex](http://jensfinnas.github.io/refine-regex-tutorial/images/01pythex.png)
-Gå till https://pythex.org/
+![Regex101](http://jensfinnas.github.io/refine-regex-tutorial/images/01regex101.png)
+Gå till http://regex101.com/#python
 
 Klistra in texten från http://jensfinnas.github.io/refine-regex-tutorial/tweets.txt
 
-- Hur många gånger nämns "Jimmie"?
-- Hitta alla hashtaggar.
+- Hitta alla siffror
+- Hitta alla Twitter-namn (@jensfinnas)
+- Hitta alla hashtaggar (#XXXXX).
 - Hitta alla url:ar (http://).
 
 
