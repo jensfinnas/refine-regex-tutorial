@@ -25,14 +25,45 @@ __Reguljära uttryck__ (regular expression, regex, regexp) är en syntax för at
 __Komplett lista över funktioner:__ http://www.tutorialspoint.com/python/python_reg_expressions.htm
 
 ### Exempel
+__Exempeltext:__
+
+> Carl Bildt, 64, (M), Fredrik Reinfeldt, 48, (M) och Annie Lööf, 30, (C) möttes i Rosenbad den 12.3.2014.
+
+> – Jag är mycket nöjd över våra samtal, säger Bildt. 
+
 <table>
-	<tr><td>Sök årtal</td><td><code>\d\d\d\d</code></td></tr>
-	<tr><td>Sök partiförkortningar</td><td><code>\([A-Z]\)</code></td></tr>
+	<tr>
+		<td>Sök årtal</td>
+		<td><code>\d{4}</code> eller <code>\d\d\d\d</code></td>
+		<td>Carl Bildt, 64, (M), Fredrik Reinfeldt, 48, (M) och Annie Lööf, 30, (C) möttes i Rosenbad den 12.3.<code>2014</code>.</td>
+	</tr>
+	<tr>
+		<td>Sök ålder</td>
+		<td><code>, (\d{1,2}),</code></td>
+		<td>Carl Bildt, <code>64</code>, (M), Fredrik Reinfeldt, <code>48</code>, (M) och Annie Lööf, <code>30</code>, (C) möttes i Rosenbad den 12.3.2014.</td>
+	</tr>
+	<tr>
+		<td>Sök citat</td>
+		<td><code>–.*$</code></td>
+		<td>
+			Carl Bildt, 64, (M), Fredrik Reinfeldt, 48, (M) och Annie Lööf, 30, (C) möttes i Rosenbad den 12.3.2014.
+		
+			<code>– Jag är mycket nöjd över våra samtal, säger Bildt.</code>
+		</td>
+	</tr>
+	<tr>
+		<td>Sök partiförkortningar</td>
+		<td><code>\([A-Ö]{1,2}\)</code></td>
+		<td>
+			Carl Bildt, 64, <code>(M)</code>, Fredrik Reinfeldt, 48, <code>(M)</code> och Annie Lööf, 30, <code>(C)</code> möttes i Rosenbad den 12.3.2014.
+		</td>
+	</tr>
 </table>
 
 ### Övning: 
 ![Pythex](http://jensfinnas.github.io/refine-regex-tutorial/images/01pythex.png)
 Gå till https://pythex.org/
+
 Klistra in texten från http://jensfinnas.github.io/refine-regex-tutorial/tweets.txt
 
 - Hur många gånger nämns "Jimmie"?
@@ -93,7 +124,8 @@ return re.search("^(\S{3,4}) talman",value).group(1)
 </code></pre>
 
 Här söker vi efter
-1. <code>~</code> början på en rad
+
+1. <code>^</code> början på en rad
 2. <code>\S{3,4}</code> tre eller fyra tecken som inte är mellanslag.
 3. <code> talman</code> följt av mellanslag talman.
 4. <code>()</code> anger att det är bara ordet inom parentesen som vi vill fånga in.
