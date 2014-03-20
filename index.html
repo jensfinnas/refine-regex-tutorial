@@ -34,7 +34,7 @@
         <p><strong>Reguljära uttryck</strong> (regular expression, regex, regexp) är en syntax för att göra <strong>avancerade mönstersökningar i textsträngar</strong>. Vi kan till exempel söka efter alla personnummer, webbadresser, akademiska titlar och så vidare. Reguljära uttyck går att tillämpa i de flesta programmeringsspråk.</p>
 
 <h3>
-<a name="definiera-tecken-p%C3%A5-regex-spr%C3%A5k" class="anchor" href="#definiera-tecken-p%C3%A5-regex-spr%C3%A5k"><span class="octicon octicon-link"></span></a>Definiera tecken på regex-språk</h3>
+<a name="steg-1-definiera-tecknet" class="anchor" href="#steg-1-definiera-tecknet"><span class="octicon octicon-link"></span></a>Steg 1: Definiera tecknet</h3>
 
 <table>
 <tr>
@@ -51,7 +51,7 @@
 </tr>
 <tr>
 <td><code>[ ]</code></td>
-<td>Matchar något av tecknen inom klammern. Till exempel <code>[aoueiyåäö]</code> matchar en vokal.</td>
+<td>Matchar något av tecknen inom klammern. Till exempel <code>[aoueiyåäö]</code> matchar en vokal, <code>[a-ö]</code> en liten bokstav mellan a och ö och <code>E-H</code> en stor bokstav mellan E och H.</td>
 </tr>
 <tr>
 <td><code>\s</code></td>
@@ -134,14 +134,15 @@
 </table><h3>
 <a name="%C3%96vning" class="anchor" href="#%C3%96vning"><span class="octicon octicon-link"></span></a>Övning:</h3>
 
-<p><img src="http://jensfinnas.github.io/refine-regex-tutorial/images/01pythex.png" alt="Pythex">
-Gå till <a href="https://pythex.org/">https://pythex.org/</a></p>
+<p><img src="http://jensfinnas.github.io/refine-regex-tutorial/images/01regex101.png" alt="Regex101">
+Gå till <a href="http://regex101.com/#python">http://regex101.com/#python</a></p>
 
-<p>Klistra in texten från <a href="http://jensfinnas.github.io/refine-regex-tutorial/tweets.txt">http://jensfinnas.github.io/refine-regex-tutorial/tweets.txt</a></p>
+<p>Klistra in texten från <a href="http://jensfinnas.github.io/refine-regex-tutorial/data/tweets.txt">http://jensfinnas.github.io/refine-regex-tutorial/data/tweets.txt</a></p>
 
 <ul>
-<li>Hur många gånger nämns "Jimmie"?</li>
-<li>Hitta alla hashtaggar.</li>
+<li>Hitta alla siffror</li>
+<li>Hitta alla Twitter-namn (<a href="https://github.com/jensfinnas" class="user-mention">@jensfinnas</a>)</li>
+<li>Hitta alla hashtaggar (#XXXXX).</li>
 <li>Hitta alla url:ar (http://).</li>
 </ul><h1>
 <a name="open-refine" class="anchor" href="#open-refine"><span class="octicon octicon-link"></span></a>Open Refine</h1>
