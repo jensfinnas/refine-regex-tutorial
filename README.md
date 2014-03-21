@@ -35,20 +35,6 @@ Välj __Data > Filter__ och filtrera bort alla värdefel.
 
 ![Export](http://jensfinnas.github.io/refine-regex-tutorial/images/11filter.png)
 
-### Formatera datum korrekt
-Klicka på kolumnen __anforande - dok_datum__ och välj sedan  __Edit column > Add column based on this column__.
-![Formatera datum korrekt](http://jensfinnas.github.io/refine-regex-tutorial/images/04parsedate.png)
-
-Applicera följande kod: <code>value.toDate()</code>.
-
-Vi kan nu filtrera på datum. Klicka på den nya kolumnen __Datum__ (eller vad du valde att kalla den) och välj __Facet > Timeline facet__.
-![Filtrera på datum](http://jensfinnas.github.io/refine-regex-tutorial/images/05filterdate.png)
-
-### Filtrera på ett parti eller annan kategori
-Klicka på __anforande - parti__ och välj __Facet > Text facet__.
-![Filtrera på parti](http://jensfinnas.github.io/refine-regex-tutorial/images/06filterparty.png)
-
-Vi kan nu välja att endast visa anföranden från ett visst parti från en viss tid.
 
 # Reguljära uttryck
 
@@ -126,7 +112,7 @@ Klistra in texten från http://jensfinnas.github.io/refine-regex-tutorial/data/t
 - Hitta alla url:ar (http://).
 
 
-### Reguljära uttryck
+### Reguljära uttryck i Open Refine
 Se till att du inte har några aktiva facets. Klicka på __anforande - anforandetext__ och välj __Edit column > Add column based on this column__. Applicera följande kod. Välj __Jython__ som språk den här gången.
 
 ![Skriv regex](http://jensfinnas.github.io/refine-regex-tutorial/images/07regex.png)
@@ -150,3 +136,17 @@ Här söker vi efter
 3. <code> talman</code> följt av mellanslag talman.
 4. <code>()</code> anger att det är bara ordet inom parentesen som vi vill fånga in.
 
+### Formatera datum korrekt
+Klicka på kolumnen __anforande - dok_datum__ och välj sedan  __Edit column > Add column based on this column__.
+![Formatera datum korrekt](http://jensfinnas.github.io/refine-regex-tutorial/images/04parsedate.png)
+
+Applicera följande kod: <code>value.toDate()</code>.
+
+Vi kan nu filtrera på datum. Klicka på den nya kolumnen __Datum__ (eller vad du valde att kalla den) och välj __Facet > Timeline facet__.
+![Filtrera på datum](http://jensfinnas.github.io/refine-regex-tutorial/images/05filterdate.png)
+
+### Filtrera på ett parti eller annan kategori
+Klicka på __anforande - parti__ och välj __Facet > Text facet__.
+![Filtrera på parti](http://jensfinnas.github.io/refine-regex-tutorial/images/06filterparty.png)
+
+Vi kan nu välja att endast visa anföranden från ett visst parti från en viss tid.
