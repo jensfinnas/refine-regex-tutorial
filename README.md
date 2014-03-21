@@ -1,3 +1,5 @@
+_http://bit.ly/regexp-tutorial_
+
 __Reguljära uttryck__ (regular expression, regex, regexp) är en syntax för att göra __avancerade mönstersökningar i textsträngar__. Vi kan till exempel söka efter alla personnummer, webbadresser, akademiska titlar och så vidare. Reguljära uttyck går att tillämpa i de flesta programmeringsspråk.
 
 
