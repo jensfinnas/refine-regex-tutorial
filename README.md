@@ -1,4 +1,5 @@
 _http://bit.ly/regexp-tutorial_
+_https://docs.google.com/presentation/d/1H2JT7eyqRDmTfanAKS9ExteLF_TN6PzB0n4QtZg3SG0/edit#slide=id.p14_
 
 # Open Refine
 Open Refine (som tidigare hette Google Refine) är att gratisverktyg för att __tvätta och bearbeta data__. Med Open Refine kan du bland annat:
