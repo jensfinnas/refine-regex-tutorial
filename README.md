@@ -1,5 +1,57 @@
 _http://bit.ly/regexp-tutorial_
 
+# Open Refine
+Open Refine (som tidigare hette Google Refine) är att gratisverktyg för att __tvätta och bearbeta data__. Med Open Refine kan du bland annat:
+- Identifiera och harmonisera __stavningsvariationer__ (till exempel "Ericsson Ab", "Ericsson", "Ericson" => "Ericsson")
+- Använda externa API:er för att komplettera ditt dataset. Till exempel genom att anropa en __geokodare__ som gör om adresser till longituder och latituder.
+- Köra __reguljära uttryck__.
+- Jobba med __stora mängder data__.
+
+Open Refine är framför allt användbart när man jobbar med __textdata__. Om du har numerisk data och vill göra beräkningar är det vanligen enklare att använda Excel eller något annat kalkylprogram.
+
+Varje databearbetning i Refine består av två steg:
+1) Välj vilken dela av datan du vill jobba med genom att applicera ett __facet__ (filter).
+2) Applicera en funktion (ofta genom att klicka på en kolumnrubrik och välj __Edit column__).
+
+### Importera data
+Öppna Open Refine, välj <code>Create Project > Web Addresses (URLs)</code> och klistra in följande url: <code>http://jensfinnas.github.io/refine-regex-tutorial/data/anfo%CC%88randen_2013-2014.xml</code>.
+![Välj fil](http://jensfinnas.github.io/refine-regex-tutorial/images/02xml.png)
+__Källa:__ http://data.riksdagen.se/Data/Anforanden/
+![Granska data](http://jensfinnas.github.io/refine-regex-tutorial/images/03import.png)
+
+
+### Exportera till Excel
+Välj __Export > Excel__. Öppna den fil som laddas ner.
+
+![Export](http://jensfinnas.github.io/refine-regex-tutorial/images/09export.png)
+
+Skapa en ny kolumn till höger om kolumnen <code>anforande - anforandetext</code>. För att söka i texten använd formeln <code>=FIND("sökord", _CELLREFERENS_)</code>.
+
+![Export](http://jensfinnas.github.io/refine-regex-tutorial/images/10find.png)
+
+Den här koden returnerar ett felmeddelande om den inte hittar nån match. Annars en siffra (som anger på vilken plats ordet förekommer). Kopiera formeln neråt genom hela datasetet.
+
+Välj __Data > Filter__ och filtrera bort alla värdefel.
+
+![Export](http://jensfinnas.github.io/refine-regex-tutorial/images/11filter.png)
+
+### Formatera datum korrekt
+Klicka på kolumnen __anforande - dok_datum__ och välj sedan  __Edit column > Add column based on this column__.
+![Formatera datum korrekt](http://jensfinnas.github.io/refine-regex-tutorial/images/04parsedate.png)
+
+Applicera följande kod: <code>value.toDate()</code>.
+
+Vi kan nu filtrera på datum. Klicka på den nya kolumnen __Datum__ (eller vad du valde att kalla den) och välj __Facet > Timeline facet__.
+![Filtrera på datum](http://jensfinnas.github.io/refine-regex-tutorial/images/05filterdate.png)
+
+### Filtrera på ett parti eller annan kategori
+Klicka på __anforande - parti__ och välj __Facet > Text facet__.
+![Filtrera på parti](http://jensfinnas.github.io/refine-regex-tutorial/images/06filterparty.png)
+
+Vi kan nu välja att endast visa anföranden från ett visst parti från en viss tid.
+
+# Reguljära uttryck
+
 __Reguljära uttryck__ (regular expression, regex, regexp) är en syntax för att göra __avancerade mönstersökningar i textsträngar__. Vi kan till exempel söka efter alla personnummer, webbadresser, akademiska titlar och så vidare. Reguljära uttyck går att tillämpa i de flesta programmeringsspråk.
 
 
@@ -74,41 +126,6 @@ Klistra in texten från http://jensfinnas.github.io/refine-regex-tutorial/data/t
 - Hitta alla url:ar (http://).
 
 
-# Open Refine
-Open Refine (som tidigare hette Google Refine) är att gratisverktyg för att __tvätta och bearbeta data__. Med Open Refine kan du bland annat:
-- Identifiera och harmonisera __stavningsvariationer__ (till exempel "Ericsson Ab", "Ericsson", "Ericson" => "Ericsson")
-- Använda externa API:er för att komplettera ditt dataset. Till exempel genom att anropa en __geokodare__ som gör om adresser till longituder och latituder.
-- Köra __reguljära uttryck__.
-- Jobba med __stora mängder data__.
-
-Open Refine är framför allt användbart när man jobbar med __textdata__. Om du har numerisk data och vill göra beräkningar är det vanligen enklare att använda Excel eller något annat kalkylprogram.
-
-Varje databearbetning i Refine består av två steg:
-1) Välj vilken dela av datan du vill jobba med genom att applicera ett __facet__ (filter).
-2) Applicera en funktion (ofta genom att klicka på en kolumnrubrik och välj __Edit column__).
-
-### Importera data
-Öppna Open Refine, välj <code>Create Project > Web Addresses (URLs)</code> och klistra in följande url: <code>http://jensfinnas.github.io/refine-regex-tutorial/data/anfo%CC%88randen_2013-2014.xml</code>.
-![Välj fil](http://jensfinnas.github.io/refine-regex-tutorial/images/02xml.png)
-__Källa:__ http://data.riksdagen.se/Data/Anforanden/
-![Granska data](http://jensfinnas.github.io/refine-regex-tutorial/images/03import.png)
-
-
-### Formatera datum korrekt
-Klicka på kolumnen __anforande - dok_datum__ och välj sedan  __Edit column > Add column based on this column__.
-![Formatera datum korrekt](http://jensfinnas.github.io/refine-regex-tutorial/images/04parsedate.png)
-
-Applicera följande kod: <code>value.toDate()</code>.
-
-Vi kan nu filtrera på datum. Klicka på den nya kolumnen __Datum__ (eller vad du valde att kalla den) och välj __Facet > Timeline facet__.
-![Filtrera på datum](http://jensfinnas.github.io/refine-regex-tutorial/images/05filterdate.png)
-
-### Filtrera på ett parti eller annan kategori
-Klicka på __anforande - parti__ och välj __Facet > Text facet__.
-![Filtrera på parti](http://jensfinnas.github.io/refine-regex-tutorial/images/06filterparty.png)
-
-Vi kan nu välja att endast visa anföranden från ett visst parti från en viss tid.
-
 ### Reguljära uttryck
 Se till att du inte har några aktiva facets. Klicka på __anforande - anforandetext__ och välj __Edit column > Add column based on this column__. Applicera följande kod. Välj __Jython__ som språk den här gången.
 
@@ -132,3 +149,4 @@ Här söker vi efter
 2. <code>\S{3,4}</code> tre eller fyra tecken som inte är mellanslag.
 3. <code> talman</code> följt av mellanslag talman.
 4. <code>()</code> anger att det är bara ordet inom parentesen som vi vill fånga in.
+
