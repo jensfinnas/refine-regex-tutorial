@@ -88,7 +88,7 @@ Varje databearbetning i Refine består av två steg:
 2) Applicera en funktion (ofta genom att klicka på en kolumnrubrik och välj __Edit column__).
 
 ### Importera data
-Öppna Open Refine, välj <code>Create Project > Web Addresses (URLs)</code> och klistra in följande url: <code>http://jensfinnas.github.io/refine-regex-tutorial/data/anföranden_2013-2014.xml</code>.
+Öppna Open Refine, välj <code>Create Project > Web Addresses (URLs)</code> och klistra in följande url: <code>http://jensfinnas.github.io/refine-regex-tutorial/data/anfo%CC%88randen_2013-2014.xml</code>.
 ![Välj fil](http://jensfinnas.github.io/refine-regex-tutorial/images/02xml.png)
 __Källa:__ http://data.riksdagen.se/Data/Anforanden/
 ![Granska data](http://jensfinnas.github.io/refine-regex-tutorial/images/03import.png)
