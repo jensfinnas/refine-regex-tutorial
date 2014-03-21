@@ -64,7 +64,7 @@ __Exempeltext:__
 ![Regex101](http://jensfinnas.github.io/refine-regex-tutorial/images/01regex101.png)
 Gå till http://regex101.com/#python
 
-Klistra in texten från http://jensfinnas.github.io/refine-regex-tutorial/tweets.txt
+Klistra in texten från http://jensfinnas.github.io/refine-regex-tutorial/data/tweets.txt
 
 - Hitta alla siffror
 - Hitta alla Twitter-namn (@jensfinnas)
