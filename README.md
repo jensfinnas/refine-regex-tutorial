@@ -118,7 +118,7 @@ Se till att du inte har några aktiva facets. Klicka på __anforande - anforande
 ![Skriv regex](http://jensfinnas.github.io/refine-regex-tutorial/images/07regex.png)
 
 <pre><code>import re
-return re.search("([Ll]andsbygd)",value).group(0)
+return re.findall("([Ll]andsbygd)",value)
 </code></pre>
 Vi har nu skapat en ny kolumn som innehåller ordet "landsbygd" eller "Landsbygd" om det ingick i anförandet. Vi kan nu applicera ett __text facet__ på den här kolumnen och på partikolumnen för att se vilka partier som använder det här ordet mest.
 
@@ -126,7 +126,7 @@ Vi har nu skapat en ny kolumn som innehåller ordet "landsbygd" eller "Landsbygd
 
 Här är ett exempel på ett lite mera avancerat reguljärt uttryck.
 <pre><code>import re
-return re.search("^(\S{3,4}) talman",value).group(1)
+return re.findall("^(\S{3,4}) talman",value).group(1)
 </code></pre>
 
 Här söker vi efter
