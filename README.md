@@ -126,7 +126,7 @@ Vi har nu skapat en ny kolumn som innehåller ordet "landsbygd" eller "Landsbygd
 
 Här är ett exempel på ett lite mera avancerat reguljärt uttryck.
 <pre><code>import re
-return re.findall("^(\S{3,4}) talman",value).group(1)
+return re.findall("^(\S{3,4}) talman",value)
 </code></pre>
 
 Här söker vi efter
