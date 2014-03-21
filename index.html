@@ -31,7 +31,71 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <p><strong>Reguljära uttryck</strong> (regular expression, regex, regexp) är en syntax för att göra <strong>avancerade mönstersökningar i textsträngar</strong>. Vi kan till exempel söka efter alla personnummer, webbadresser, akademiska titlar och så vidare. Reguljära uttyck går att tillämpa i de flesta programmeringsspråk.</p>
+        <p><em><a href="http://bit.ly/regexp-tutorial">http://bit.ly/regexp-tutorial</a></em></p>
+
+<h1>
+<a name="open-refine" class="anchor" href="#open-refine"><span class="octicon octicon-link"></span></a>Open Refine</h1>
+
+<p>Open Refine (som tidigare hette Google Refine) är att gratisverktyg för att <strong>tvätta och bearbeta data</strong>. Med Open Refine kan du bland annat:</p>
+
+<ul>
+<li>Identifiera och harmonisera <strong>stavningsvariationer</strong> (till exempel "Ericsson Ab", "Ericsson", "Ericson" =&gt; "Ericsson")</li>
+<li>Använda externa API:er för att komplettera ditt dataset. Till exempel genom att anropa en <strong>geokodare</strong> som gör om adresser till longituder och latituder.</li>
+<li>Köra <strong>reguljära uttryck</strong>.</li>
+<li>Jobba med <strong>stora mängder data</strong>.</li>
+</ul><p>Open Refine är framför allt användbart när man jobbar med <strong>textdata</strong>. Om du har numerisk data och vill göra beräkningar är det vanligen enklare att använda Excel eller något annat kalkylprogram.</p>
+
+<p>Varje databearbetning i Refine består av två steg:
+1) Välj vilken dela av datan du vill jobba med genom att applicera ett <strong>facet</strong> (filter).
+2) Applicera en funktion (ofta genom att klicka på en kolumnrubrik och välj <strong>Edit column</strong>).</p>
+
+<h3>
+<a name="importera-data" class="anchor" href="#importera-data"><span class="octicon octicon-link"></span></a>Importera data</h3>
+
+<p>Öppna Open Refine, välj <code>Create Project &gt; Web Addresses (URLs)</code> och klistra in följande url: <code><a href="http://jensfinnas.github.io/refine-regex-tutorial/data/anfo%CC%88randen_2013-2014.xml">http://jensfinnas.github.io/refine-regex-tutorial/data/anfo%CC%88randen_2013-2014.xml</a></code>.
+<img src="http://jensfinnas.github.io/refine-regex-tutorial/images/02xml.png" alt="Välj fil"><strong>Källa:</strong> <a href="http://data.riksdagen.se/Data/Anforanden/">http://data.riksdagen.se/Data/Anforanden/</a>
+<img src="http://jensfinnas.github.io/refine-regex-tutorial/images/03import.png" alt="Granska data"></p>
+
+<h3>
+<a name="exportera-till-excel" class="anchor" href="#exportera-till-excel"><span class="octicon octicon-link"></span></a>Exportera till Excel</h3>
+
+<p>Välj <strong>Export &gt; Excel</strong>. Öppna den fil som laddas ner.</p>
+
+<p><img src="http://jensfinnas.github.io/refine-regex-tutorial/images/09export.png" alt="Export"></p>
+
+<p>Skapa en ny kolumn till höger om kolumnen <code>anforande - anforandetext</code>. För att söka i texten använd formeln <code>=FIND("sökord", <em>CELLREFERENS</em>)</code>.</p>
+
+<p><img src="http://jensfinnas.github.io/refine-regex-tutorial/images/10find.png" alt="Export"></p>
+
+<p>Den här koden returnerar ett felmeddelande om den inte hittar nån match. Annars en siffra (som anger på vilken plats ordet förekommer). Kopiera formeln neråt genom hela datasetet.</p>
+
+<p>Välj <strong>Data &gt; Filter</strong> och filtrera bort alla värdefel.</p>
+
+<p><img src="http://jensfinnas.github.io/refine-regex-tutorial/images/11filter.png" alt="Export"></p>
+
+<h3>
+<a name="formatera-datum-korrekt" class="anchor" href="#formatera-datum-korrekt"><span class="octicon octicon-link"></span></a>Formatera datum korrekt</h3>
+
+<p>Klicka på kolumnen <strong>anforande - dok_datum</strong> och välj sedan  <strong>Edit column &gt; Add column based on this column</strong>.
+<img src="http://jensfinnas.github.io/refine-regex-tutorial/images/04parsedate.png" alt="Formatera datum korrekt"></p>
+
+<p>Applicera följande kod: <code>value.toDate()</code>.</p>
+
+<p>Vi kan nu filtrera på datum. Klicka på den nya kolumnen <strong>Datum</strong> (eller vad du valde att kalla den) och välj <strong>Facet &gt; Timeline facet</strong>.
+<img src="http://jensfinnas.github.io/refine-regex-tutorial/images/05filterdate.png" alt="Filtrera på datum"></p>
+
+<h3>
+<a name="filtrera-p%C3%A5-ett-parti-eller-annan-kategori" class="anchor" href="#filtrera-p%C3%A5-ett-parti-eller-annan-kategori"><span class="octicon octicon-link"></span></a>Filtrera på ett parti eller annan kategori</h3>
+
+<p>Klicka på <strong>anforande - parti</strong> och välj <strong>Facet &gt; Text facet</strong>.
+<img src="http://jensfinnas.github.io/refine-regex-tutorial/images/06filterparty.png" alt="Filtrera på parti"></p>
+
+<p>Vi kan nu välja att endast visa anföranden från ett visst parti från en viss tid.</p>
+
+<h1>
+<a name="regulj%C3%A4ra-uttryck" class="anchor" href="#regulj%C3%A4ra-uttryck"><span class="octicon octicon-link"></span></a>Reguljära uttryck</h1>
+
+<p><strong>Reguljära uttryck</strong> (regular expression, regex, regexp) är en syntax för att göra <strong>avancerade mönstersökningar i textsträngar</strong>. Vi kan till exempel söka efter alla personnummer, webbadresser, akademiska titlar och så vidare. Reguljära uttyck går att tillämpa i de flesta programmeringsspråk.</p>
 
 <h3>
 <a name="steg-1-definiera-tecknet" class="anchor" href="#steg-1-definiera-tecknet"><span class="octicon octicon-link"></span></a>Steg 1: Definiera tecknet</h3>
@@ -144,50 +208,8 @@ Gå till <a href="http://regex101.com/#python">http://regex101.com/#python</a></
 <li>Hitta alla Twitter-namn (<a href="https://github.com/jensfinnas" class="user-mention">@jensfinnas</a>)</li>
 <li>Hitta alla hashtaggar (#XXXXX).</li>
 <li>Hitta alla url:ar (http://).</li>
-</ul><h1>
-<a name="open-refine" class="anchor" href="#open-refine"><span class="octicon octicon-link"></span></a>Open Refine</h1>
-
-<p>Open Refine (som tidigare hette Google Refine) är att gratisverktyg för att <strong>tvätta och bearbeta data</strong>. Med Open Refine kan du bland annat:</p>
-
-<ul>
-<li>Identifiera och harmonisera <strong>stavningsvariationer</strong> (till exempel "Ericsson Ab", "Ericsson", "Ericson" =&gt; "Ericsson")</li>
-<li>Använda externa API:er för att komplettera ditt dataset. Till exempel genom att anropa en <strong>geokodare</strong> som gör om adresser till longituder och latituder.</li>
-<li>Köra <strong>reguljära uttryck</strong>.</li>
-<li>Jobba med <strong>stora mängder data</strong>.</li>
-</ul><p>Open Refine är framför allt användbart när man jobbar med <strong>textdata</strong>. Om du har numerisk data och vill göra beräkningar är det vanligen enklare att använda Excel eller något annat kalkylprogram.</p>
-
-<p>Varje databearbetning i Refine består av två steg:
-1) Välj vilken dela av datan du vill jobba med genom att applicera ett <strong>facet</strong> (filter).
-2) Applicera en funktion (ofta genom att klicka på en kolumnrubrik och välj <strong>Edit column</strong>).</p>
-
-<h3>
-<a name="importera-data" class="anchor" href="#importera-data"><span class="octicon octicon-link"></span></a>Importera data</h3>
-
-<p>Öppna Open Refine, välj <code>Create Project &gt; Web Addresses (URLs)</code> och klistra in följande url: <code><a href="http://jensfinnas.github.io/refine-regex-tutorial/data/anf%C3%B6randen_2013-2014.xml">http://jensfinnas.github.io/refine-regex-tutorial/data/anföranden_2013-2014.xml</a></code>.
-<img src="http://jensfinnas.github.io/refine-regex-tutorial/images/02xml.png" alt="Välj fil"><strong>Källa:</strong> <a href="http://data.riksdagen.se/Data/Anforanden/">http://data.riksdagen.se/Data/Anforanden/</a>
-<img src="http://jensfinnas.github.io/refine-regex-tutorial/images/03import.png" alt="Granska data"></p>
-
-<h3>
-<a name="formatera-datum-korrekt" class="anchor" href="#formatera-datum-korrekt"><span class="octicon octicon-link"></span></a>Formatera datum korrekt</h3>
-
-<p>Klicka på kolumnen <strong>anforande - dok_datum</strong> och välj sedan  <strong>Edit column &gt; Add column based on this column</strong>.
-<img src="http://jensfinnas.github.io/refine-regex-tutorial/images/04parsedate.png" alt="Formatera datum korrekt"></p>
-
-<p>Applicera följande kod: <code>value.toDate()</code>.</p>
-
-<p>Vi kan nu filtrera på datum. Klicka på den nya kolumnen <strong>Datum</strong> (eller vad du valde att kalla den) och välj <strong>Facet &gt; Timeline facet</strong>.
-<img src="http://jensfinnas.github.io/refine-regex-tutorial/images/05filterdate.png" alt="Filtrera på datum"></p>
-
-<h3>
-<a name="filtrera-p%C3%A5-ett-parti-eller-annan-kategori" class="anchor" href="#filtrera-p%C3%A5-ett-parti-eller-annan-kategori"><span class="octicon octicon-link"></span></a>Filtrera på ett parti eller annan kategori</h3>
-
-<p>Klicka på <strong>anforande - parti</strong> och välj <strong>Facet &gt; Text facet</strong>.
-<img src="http://jensfinnas.github.io/refine-regex-tutorial/images/06filterparty.png" alt="Filtrera på parti"></p>
-
-<p>Vi kan nu välja att endast visa anföranden från ett visst parti från en viss tid.</p>
-
-<h3>
-<a name="regulj%C3%A4ra-uttryck" class="anchor" href="#regulj%C3%A4ra-uttryck"><span class="octicon octicon-link"></span></a>Reguljära uttryck</h3>
+</ul><h3>
+<a name="regulj%C3%A4ra-uttryck-1" class="anchor" href="#regulj%C3%A4ra-uttryck-1"><span class="octicon octicon-link"></span></a>Reguljära uttryck</h3>
 
 <p>Se till att du inte har några aktiva facets. Klicka på <strong>anforande - anforandetext</strong> och välj <strong>Edit column &gt; Add column based on this column</strong>. Applicera följande kod. Välj <strong>Jython</strong> som språk den här gången.</p>
 
