@@ -4,7 +4,7 @@ __Data:__ Samtliga anföranden i riksdagen, september 2013-mars 2014
 
 - __XML:__ https://docs.google.com/file/d/0B4jPWc7pGzlMUXhJOUhhSWJYcXc (28 MB)
 - __Excel-format:__ http://jplusplus.se/u/grav14/anforanden_2013-mars2014.xls (22 MB)
-- __Excel-sampel:__ http://jplusplus.se/u/grav14/anf-randen_2013-mars2014_sample.xls (190 kB, 100 rader)
+- __Excel-sampel:__ https://dl.dropboxusercontent.com/u/15955488/anf-randen_2013-mars2014-xml_sample.xls (190 kB, 100 rader)
 
 
 # Open Refine
