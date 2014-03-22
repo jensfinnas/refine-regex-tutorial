@@ -2,7 +2,7 @@ __Korl-url till den här sidan:__ _http://bit.ly/regexp-tutorial_
 
 __Data:__ Samtliga anföranden i riksdagen, september 2013-mars 2014 
 
-- __XML:__ https://docs.google.com/presentation/d/1H2JT7eyqRDmTfanAKS9ExteLF_TN6PzB0n4QtZg3SG0/edit#slide=id.p14 (28 MB)
+- __XML:__ https://docs.google.com/file/d/0B4jPWc7pGzlMUXhJOUhhSWJYcXc (28 MB)
 - __Excel-format:__ http://jplusplus.se/u/grav14/anforanden_2013-mars2014.xls (22 MB)
 - __Excel-sampel:__ http://jplusplus.se/u/grav14/anf-randen_2013-mars2014_sample.xls (190 kB, 100 rader)
 
@@ -21,14 +21,7 @@ Varje databearbetning i Refine består av två steg:
 2) Applicera en funktion (ofta genom att klicka på en kolumnrubrik och välj __Edit column__).
 
 ### Importera data
-Ladda ner följande datafil: <code>https://docs.google.com/file/d/0B4jPWc7pGzlMUXhJOUhhSWJYcXc</code>. Välj <code>Create Project > This Computer</code> och ange den fil du precis laddat ner.
-
-__Alternativt:__
-
-Öppna Open Refine, välj <code>Create Project > Web Addresses (URLs)</code> och klistra in följande url: <code>http://jensfinnas.github.io/refine-regex-tutorial/data/anfo%CC%88randen_2013-2014.xml</code>.
-![Välj fil](http://jensfinnas.github.io/refine-regex-tutorial/images/02xml.png)
-__Källa:__ http://data.riksdagen.se/Data/Anforanden/
-![Granska data](http://jensfinnas.github.io/refine-regex-tutorial/images/03import.png)
+Ladda ner en av datafilerna länkade högst upp i det här dokumentet.Välj <code>Create Project > This Computer</code> och ange den fil du precis laddat ner.
 
 
 ### Exportera till Excel
@@ -137,7 +130,7 @@ Vi har nu skapat en ny kolumn som innehåller ordet "landsbygd" eller "Landsbygd
 
 Här är ett exempel på ett lite mera avancerat reguljärt uttryck.
 <pre><code>import re
-return re.findall("^(\S{3,4}) talman",value)
+return re.findall("^(\S{3,4}) talman",value)[0]
 </code></pre>
 
 Här söker vi efter
@@ -146,6 +139,19 @@ Här söker vi efter
 2. <code>\S{3,4}</code> tre eller fyra tecken som inte är mellanslag.
 3. <code> talman</code> följt av mellanslag talman.
 4. <code>()</code> anger att det är bara ordet inom parentesen som vi vill fånga in.
+
+Med <code>return re.findall("^(\S{3,4}) talman",value)[0]</code> returnerar vi den första träffen. Med <code>return len(re.findall("^(\S{3,4}) talman",value))</code> returnerar vi alla träffar.
+
+Vi kan också skriva mera avancerade sökningar. Här är till exempel en som loopar genom ett antal sökord (i det här fallet svordomar) och returnerar alla träffar, seprerade med kommatecken.
+
+<code>
+import re
+matches = []
+expressions = [" ([Ff]an) ", "([Jj]ävl)", "([Ss]atan)"]
+for regex in expressions:
+    matches = matches + re.findall(regex,value)
+return ",".join(matches)
+</code>
 
 ### Formatera datum korrekt
 Klicka på kolumnen __anforande - dok_datum__ och välj sedan  __Edit column > Add column based on this column__.
