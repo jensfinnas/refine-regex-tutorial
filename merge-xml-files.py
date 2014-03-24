@@ -23,7 +23,7 @@ fout.write("<data>")
 
 # Loop alla xml-filerna
 for fileName in files:
-	f = open(outFile)
+	f = open(fileName)
 	# Loopa varje rad i xml-filen och skriv motsvarande rad till output-filen
 	for line in f:
 		fout.write(line)
