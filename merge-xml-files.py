@@ -7,7 +7,7 @@ import csv
 import glob
 
 # Hämta in alla xml-filer i mappen
-files = glob.glob("anforande-2013-mars2014/*.xml")
+files = glob.glob("*.xml")
 print files
 
 # Definiera vad output-filen ska heta
