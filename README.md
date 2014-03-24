@@ -6,6 +6,7 @@ __Data:__ Samtliga anföranden i riksdagen, september 2013-mars 2014
 - __Excel-format:__ http://jplusplus.se/u/grav14/anforanden_2013-mars2014.xls (22 MB)
 - __Excel-sampel:__ https://dl.dropboxusercontent.com/u/15955488/anf-randen_2013-mars2014-xml_sample.xls (190 kB, 100 rader)
 
+__Skript för att slå ihop XML-filer:__ https://github.com/jensfinnas/refine-regex-tutorial/blob/master/merge-xml-files.py
 
 # Open Refine
 Open Refine (som tidigare hette Google Refine) är att gratisverktyg för att __tvätta och bearbeta data__. Med Open Refine kan du bland annat:
